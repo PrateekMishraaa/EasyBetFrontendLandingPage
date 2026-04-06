@@ -1,20 +1,20 @@
 // App.js - Make sure onLoginClick is passed to RegisterForm
 import React, { useRef, useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import GameCategories from './components/GameCategories';
-import HotSlots from './components/HotSlots';
-import CrashGames from './components/CrashGames';
-import NewGames from './components/NewGames';
-import PopularGames from './components/PopularGames';
-import SportsPromotions from './components/SportsPromotions';
-import GameShows from './components/GameShows';
-import OtherPromotions from './components/OtherPromotions';
-import TableGames from './components/TableGames';
-import LuckyNumbers from './components/LuckyNumbers';
-import EasyGuide from './components/EasyGuide';
-import Playbook from './components/Playbook';
-import Footer from './components/Footer';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
+import GameCategories from './Components/GameCategories';
+import HotSlots from './Components/HotSlots';
+import CrashGames from './Components/CrashGames';
+import NewGames from './Components/NewGames';
+import PopularGames from './Components/PopularGames';
+import SportsPromotions from './Components/SportsPromotions';
+import GameShows from './Components/GameShows';
+import OtherPromotions from './Components/OtherPromotions';
+import TableGames from './Components/TableGames';
+import LuckyNumbers from './Components/LuckyNumbers';
+import EasyGuide from './Components/EasyGuide';
+import Playbook from './Components/Playbook';
+import Footer from './Components/Footer';
 import RegisterForm from './Pages/RegisterForm';
 import LoginForm from './Pages/Login';
 
