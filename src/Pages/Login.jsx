@@ -45,7 +45,7 @@ const LoginForm = ({ onClose, onRegisterClick }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/login', formData, {
+      const response = await axios.post('https://easybetbackend.onrender.com/api/login', formData, {
         headers: {
           "Content-Type": "application/json"
         }
