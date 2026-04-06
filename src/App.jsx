@@ -1,5 +1,5 @@
-// App.js - Main Component with section refs
-import React, { useRef } from 'react';
+// App.js - Make sure onLoginClick is passed to RegisterForm
+import React, { useRef, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import GameCategories from './components/GameCategories';
@@ -15,8 +15,14 @@ import LuckyNumbers from './components/LuckyNumbers';
 import EasyGuide from './components/EasyGuide';
 import Playbook from './components/Playbook';
 import Footer from './components/Footer';
+import RegisterForm from './Pages/RegisterForm';
+import LoginForm from './Pages/Login';
 
 function App() {
+  // State for modals
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
   // Create refs for each section
   const hotSlotsRef = useRef(null);
   const crashGamesRef = useRef(null);
@@ -33,15 +39,50 @@ function App() {
   // Scroll function
   const scrollToSection = (ref) => {
     if (ref && ref.current) {
-      const yOffset = -80; // Account for fixed navbar
+      const yOffset = -80;
       const y = ref.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
+  // Modal handlers
+  const openRegisterForm = () => {
+    console.log("Opening register form");
+    setShowRegister(true);
+  };
+
+  const closeRegisterForm = () => {
+    console.log("Closing register form");
+    setShowRegister(false);
+  };
+
+  const openLoginForm = () => {
+    console.log("Opening login form");
+    setShowLogin(true);
+  };
+
+  const closeLoginForm = () => {
+    console.log("Closing login form");
+    setShowLogin(false);
+  };
+
+  // Switch from Register to Login
+  const switchToLogin = () => {
+    console.log("Switching from register to login");
+    setShowRegister(false);
+    setShowLogin(true);
+  };
+
+  // Switch from Login to Register
+  const switchToRegister = () => {
+    console.log("Switching from login to register");
+    setShowLogin(false);
+    setShowRegister(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#0B0E1A]">
-      <Navbar />
+      <Navbar onRegisterClick={openRegisterForm} onLoginClick={openLoginForm} />
       <main className="pt-16">
         <Hero />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -74,6 +115,15 @@ function App() {
         </div>
       </main>
       <Footer />
+
+      {/* Modals */}
+      {showRegister && (
+        <RegisterForm onClose={closeRegisterForm} onLoginClick={switchToLogin} />
+      )}
+      
+      {showLogin && (
+        <LoginForm onClose={closeLoginForm} onRegisterClick={switchToRegister} />
+      )}
     </div>
   );
 }
